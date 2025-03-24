@@ -17,7 +17,7 @@ FOVring.Visible = true
 FOVring.Thickness = 1
 FOVring.Radius = fov
 FOVring.Transparency = 0.8
-FOVring.Color = Color3.fromRGB(255, 128, 128)
+FOVring.Color = Color3.new(1.000000, 1.000000, 1.000000)
 FOVring.Position = workspace.CurrentCamera.ViewportSize / 2
 
 local currentTarget = nil
@@ -58,8 +58,8 @@ local function highlightTarget(target)
     if highlightEnabled and target and target.Character then
         local highlight = Instance.new("Highlight")
         highlight.Adornee = target.Character
-        highlight.FillColor = Color3.fromRGB(255, 128, 128)
-        highlight.OutlineColor = Color3.fromRGB(255, 0, 0)
+        highlight.FillColor = Color3.new(1.000000, 1.000000, 1.000000)
+        highlight.OutlineColor = Color3.new(1.000000, 1.000000, 1.000000)
         highlight.Parent = target.Character
     end
 end
@@ -115,16 +115,16 @@ loop = RunService.RenderStepped:Connect(function()
                 if predictedPosition then
                     workspace.CurrentCamera.CFrame = workspace.CurrentCamera.CFrame:Lerp(CFrame.new(cam.CFrame.Position, predictedPosition), smoothing)
                 end
-                FOVring.Color = Color3.fromRGB(0, 255, 0)  -- Change FOV ring color to green when locked onto a target
+                FOVring.Color = Color3.new(1.000000, 1.000000, 1.000000)  -- Change FOV ring color to green when locked onto a target
             else
-                FOVring.Color = Color3.fromRGB(255, 128, 128)  -- Revert FOV ring color to original when not locked onto a target
+                FOVring.Color = Color3.new(1.000000, 1.000000, 1.000000)  -- Revert FOV ring color to original when not locked onto a target
             end
         else
             if currentTarget and highlightEnabled then
                 removeHighlight(currentTarget)  -- Remove highlight from the old target
             end
             currentTarget = nil
-            FOVring.Color = Color3.fromRGB(255, 128, 128)  -- Revert FOV ring color to original when not locked onto a target
+            FOVring.Color = Color3.new(1.000000, 1.000000, 1.000000)  -- Revert FOV ring color to original when not locked onto a target
         end
     end
 end)
